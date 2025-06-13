@@ -1,0 +1,11 @@
+.main-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 30px;
+  justify-content: center;
+}
+.load-button {
+  display: flex;
+  margin: 10px;
+}

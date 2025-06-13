@@ -1,0 +1,63 @@
+.nav-items {
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+input {
+  min-width: fit-content;
+  padding: 5px;
+  border-radius: 10px;
+  width: 500px;
+  padding-top: 10px;
+  border: none;
+  margin-left: 20px;
+  caret-color: transparent;
+}
+#select {
+  margin-top: 6px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  border-radius: 16px;
+  border: none;
+  padding: 4px;
+  margin-left: 10px;
+  transition: all 0.3s;
+}
+
+button {
+  margin-top: auto;
+  padding: 0px 10px 0px 10px;
+  margin-left: 2px;
+  height: auto;
+  border-radius: 16px;
+  color: white;
+  background-color: black;
+  transition: all 0.3s;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0px 15px 25px -5px rgba(0, 50, 100, 0.4); /* Equivalent to darken(dodgerblue, 40%) */
+  transform: scale(1.03);
+}
+button:active {
+  box-shadow: 0px 4px 8px rgba(0, 80, 160, 0.3); /* Equivalent to darken(dodgerblue, 30%) */
+  transform: scale(0.98);
+}
+#select:hover {
+  cursor: pointer;
+  box-shadow: 0px 15px 25px -5px rgba(0, 50, 100, 0.4); /* Equivalent to darken(dodgerblue, 40%) */
+  transform: scale(1.03);
+}
+#select:hover {
+  cursor: pointer;
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: row;
+}
