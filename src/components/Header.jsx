@@ -10,7 +10,6 @@ export default function Header({
   notifyParentOfClick,
   notifyParentOfSelector,
 }) {
-  const [filterOption, setFilteredOption] = useState("");
   const [search, setSearch] = useState("");
   const [clicked, setClick] = useState(false);
 
@@ -28,9 +27,9 @@ export default function Header({
   function handleChange(e) {
     setSearch(e.target.value);
   }
+  //function to handle select
   function handleSelect(e) {
-    setFilteredOption(e.target.value);
-    notifyParentOfClick(filterOption);
+    notifyParentOfSelector(e.target.value);
   }
   return (
     <header className="header-container gradient">

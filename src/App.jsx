@@ -18,7 +18,6 @@ function App() {
   const handleSelector = (select) => {
     setSelector(select);
   };
-  console.log(searchData);
   return (
     <>
       <Header
@@ -26,8 +25,7 @@ function App() {
         notifyParentOfClick={handleReset}
         notifyParentOfSelector={setSelector}
       />
-      {/* <Modal /> */}
-      <MovieContainer searchData={searchData} />
+      <MovieContainer searchData={searchData} selector={selector} />
       <Footer />
     </>
   );

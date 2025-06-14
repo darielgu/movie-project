@@ -70,7 +70,6 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
           const unique = data.results.filter((movie) => !prevId.has(movie.id)); // compare new id's to unique arrays and creata array
           return [...previous, ...unique]; // spread into one movie array
         });
-        setTotalPage(data.results.total_pages);
       } catch (error) {
         console.error(error);
       }
@@ -78,17 +77,44 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
     fetchList();
   }, [clickStatus]);
 
-  // Selector button Render Effect
+  // Selector/sorting button Render Effect
   useEffect(() => {
-    if (selector == "top_rated") {
+    console.log("Current selector value:", selector);
+    if (selector === "top_rated") {
+      //this currently does not work for load more
       // sort movies array by rating lowest to highest
+      setMovies((prevMovies) => {
+        return [...prevMovies].sort((a, b) => {
+          return b.vote_average - a.vote_average;
+        });
+      });
+      console.log(movies);
     } else if (selector == "title") {
+      setMovies((prevMovies) => {
+        return [...prevMovies].sort((a, b) => {
+          if (a.title < b.title) {
+            return -1;
+          }
+          if (a.title > b.title) {
+            return 1;
+          }
+          return 0;
+        });
+      });
       // sory by title A-Z
-    } else if (selector == "release_data") {
+    } else if (selector == "release_date") {
+      setMovies((prevMovies) => {
+        return [...prevMovies].sort((a, b) => {
+          const dateA = new Date(a.release_date);
+          const dateB = new Date(b.release_date);
+          return dateA - dateB;
+        });
+      });
       // sort by release date
-    } else {
-      // result to original way
     }
+    // else {
+    // result to original way
+    // }
   }, [selector]);
 
   return (
