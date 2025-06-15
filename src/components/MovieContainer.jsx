@@ -12,7 +12,7 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
   const [totalPage, setTotalPage] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  // Basic useEffect for
+  // Basic useEffect for rendering movie list
   useEffect(() => {
     const fetchList = async () => {
       try {
@@ -31,14 +31,19 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
         console.error(error);
       }
     };
-    fetchList();
+    if (searchData == "") {
+      fetchList();
+    }
   }, [page]);
 
   // Search Button Clicked Render Effect
+  useEffect(() => {
+    setMovies([]);
+  }, [searchData]);
 
   useEffect(() => {
     const fetchSearch = async () => {
-      setMovies([]);
+      // setMovies([]);
       setLoading(true);
       const { data } = await axios.get(
         `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchData}&include_adult=false&language=en-US&page=${page}`
@@ -50,11 +55,12 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
         const unique = data.results.filter((movie) => !prevId.has(movie.id)); // compare new id's to unique arrays and creata array
         return [...previous, ...unique]; // spread into one movie array
       });
+      setTotalPage(data.results.totalPage);
     };
     if (searchData != "") {
       fetchSearch();
     }
-  }, [searchData]);
+  }, [searchData, page]);
 
   // Reset Button Clicked Render Effect
   useEffect(() => {
