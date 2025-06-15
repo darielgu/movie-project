@@ -11,8 +11,9 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
   const [movies, setMovies] = useState([]);
   const [totalPage, setTotalPage] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  // Basic useEffect for rendering movie list
+  // Basic fetch call for rendering movie list when no search or buttons have been applied
   useEffect(() => {
     const fetchList = async () => {
       try {
@@ -26,6 +27,7 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
           const unique = data.results.filter((movie) => !prevId.has(movie.id)); // compare new id's to unique arrays and creata array
           return [...previous, ...unique]; // spread into one movie array
         });
+        filterHelper();
         setTotalPage(data.results.total_pages);
       } catch (error) {
         console.error(error);
@@ -36,11 +38,12 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
     }
   }, [page]);
 
-  // Search Button Clicked Render Effect
+  // When searching clear movies array of old movies
   useEffect(() => {
     setMovies([]);
   }, [searchData]);
 
+  // When searching fetch movies according to searchData
   useEffect(() => {
     const fetchSearch = async () => {
       // setMovies([]);
@@ -55,6 +58,7 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
         const unique = data.results.filter((movie) => !prevId.has(movie.id)); // compare new id's to unique arrays and creata array
         return [...previous, ...unique]; // spread into one movie array
       });
+      filterHelper();
       setTotalPage(data.results.totalPage);
     };
     if (searchData != "") {
@@ -62,7 +66,7 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
     }
   }, [searchData, page]);
 
-  // Reset Button Clicked Render Effect
+  // Reset Button Clicked ReRender Effect
   useEffect(() => {
     const fetchList = async () => {
       try {
@@ -83,18 +87,15 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
     fetchList();
   }, [clickStatus]);
 
-  // Selector/sorting button Render Effect
-  useEffect(() => {
+  // helper function to do array sorting for dropdown
+  function filterHelper() {
     console.log("Current selector value:", selector);
     if (selector === "top_rated") {
-      //this currently does not work for load more
-      // sort movies array by rating lowest to highest
       setMovies((prevMovies) => {
         return [...prevMovies].sort((a, b) => {
           return b.vote_average - a.vote_average;
         });
       });
-      console.log(movies);
     } else if (selector == "title") {
       setMovies((prevMovies) => {
         return [...prevMovies].sort((a, b) => {
@@ -107,7 +108,6 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
           return 0;
         });
       });
-      // sory by title A-Z
     } else if (selector == "release_date") {
       setMovies((prevMovies) => {
         return [...prevMovies].sort((a, b) => {
@@ -116,12 +116,13 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
           return dateA - dateB;
         });
       });
-      // sort by release date
     }
-    // else {
-    // result to original way
-    // }
-  }, [selector]);
+  }
+
+  // when selector is updated call array filter
+  useEffect(() => {
+    filterHelper();
+  }, [selector]); // TODO: fix this to reapply filter when load more is clicked
 
   return (
     <>
