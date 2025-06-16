@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 .modal-container {
   display: block;
   position: fixed;
@@ -7,12 +8,61 @@
   width: 80%;
   height: 80%;
   overflow: auto;
-  background-color: rgb(255, 255, 255);
+  border-radius: 1.5em;
+}
+.modal-header {
+  text-align: right;
+  margin: 10px;
 }
 .modal-body {
+  color: #000000ec;
+  /* padding: 40px; */
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+img {
+  height: 500px;
+}
+.left {
+  margin-top: 60px;
+  margin-left: 40px;
 }
 .details {
-  margin: 0 auto;
+  font-family: Montserrat;
+  display: flex;
+  flex-direction: row;
+}
+.items {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+h1 {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+  font-family: sans-serif;
+}
+h2 {
+  font-family: Montserrat;
+  margin: 10px;
+}
+p {
+  color: white;
+}
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+li {
+  margin-left: 10px;
+  display: inline-block;
+  list-style: none;
+  color: rgb(244, 244, 244);
+  border-radius: 2px;
+  padding: 3px;
 }
