@@ -8,9 +8,18 @@ export default function MovieCard({
   altText,
   onClick,
 }) {
+  function addDefaultImg(e) {
+    e.target.src =
+      "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
+  }
   return (
     <div className="card-container" onClick={onClick}>
-      <img src={imageURL} alt={altText} className="movie-image" />
+      <img
+        src={imageURL}
+        alt={altText}
+        className="movie-image"
+        onError={addDefaultImg}
+      />
       <div className="card-body">
         <h3 className="movie-title">{title}</h3>
         <br />
