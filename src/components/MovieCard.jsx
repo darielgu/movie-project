@@ -1,13 +1,15 @@
 import "/Users/dariel.gutierrez/Desktop/projects/flixster/movie-project/src/components/MoiveCard.css";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import { useState } from "react";
-export default function MovieCard({ imageURL, title, rating, altText }) {
-  const [isClicked, setClick] = useState(false);
-  function clicked() {
-    setClick(true);
-  }
+export default function MovieCard({
+  imageURL,
+  title,
+  rating,
+  altText,
+  onClick,
+}) {
   return (
-    <div className="card-container">
+    <div className="card-container" onClick={onClick}>
       <img src={imageURL} alt={altText} className="movie-image" />
       <div className="card-body">
         <h3 className="movie-title">{title}</h3>

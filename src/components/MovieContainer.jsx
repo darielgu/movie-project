@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
 import "./MovieContainer.css";
-import Modal from "./Modal";
+import Modal from "./Modal/Modal";
 
 export default function MovieContainer({ searchData, clickStatus, selector }) {
   const API_KEY = import.meta.env.VITE_API_KEY;
@@ -12,6 +12,7 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
   const [totalPage, setTotalPage] = useState(0);
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   // Basic fetch call for rendering movie list when no search or buttons have been applied
   useEffect(() => {
@@ -124,6 +125,28 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
     filterHelper();
   }, [selector]); // TODO: fix this to reapply filter when load more is clicked
 
+  // when card clicked fetch details and op[en modal
+  async function handleCardClick(id) {
+    setShowModal(true);
+    setSelectedMovie(null); // trigger a loading state
+
+    try {
+      const { data } = await axios.get(
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`
+      );
+      setSelectedMovie(data);
+      console.log(selectedMovie);
+    } catch (error) {
+      console.error("error fetching movie for modal ", error);
+    }
+  }
+
+  // logic for closing modal
+  function handleClose() {
+    setSelectedMovie(null);
+    setShowModal(false);
+  }
+
   return (
     <>
       <div className="main-container">
@@ -135,11 +158,13 @@ export default function MovieContainer({ searchData, clickStatus, selector }) {
               altText={movie.title}
               title={movie.title}
               rating={Math.floor(movie.vote_average)}
-              onClick={() => displayModal()}
+              onClick={() => handleCardClick(movie.id)}
             />
           );
         })}
       </div>
+
+      <Modal movie={selectedMovie} show={showModal} onClose={handleClose} />
       <button className="load-button" onClick={() => setPage(page + 1)}>
         {loading ? "Loading.." : "Load More"}
       </button>
