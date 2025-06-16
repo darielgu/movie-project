@@ -70,8 +70,7 @@ li {
   padding: 3px;
 }
 iframe {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
   align-self: center;
   width: 80%;
   height: 50%;
