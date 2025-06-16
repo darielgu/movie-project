@@ -15,7 +15,7 @@
   margin: 10px;
 }
 .modal-body {
-  color: #000000ec;
+  color: #ffffffec;
   /* padding: 40px; */
   display: flex;
   flex-direction: column;
@@ -23,6 +23,7 @@
   align-items: center;
 }
 img {
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   height: 500px;
 }
 .left {
@@ -41,13 +42,15 @@ img {
   justify-content: center;
 }
 h1 {
+  text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.6);
   text-align: center;
   color: rgb(255, 255, 255);
   margin-bottom: 20px;
   font-family: sans-serif;
 }
 h2 {
-  font-family: Montserrat;
+  font-weight: 100;
+  font-family: sans-serif;
   margin: 10px;
 }
 p {
@@ -65,4 +68,14 @@ li {
   color: rgb(244, 244, 244);
   border-radius: 2px;
   padding: 3px;
+}
+iframe {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  align-self: center;
+  width: 80%;
+  height: 50%;
+  margin: 10px;
+  border: none;
+  border-radius: 30px;
 }
