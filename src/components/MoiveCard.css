@@ -9,7 +9,7 @@
   overflow: hidden; /* makes sure corners are shown*/
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin: 20px;
-  height: 350px;
+  height: 400px;
   color: rgb(255, 255, 255);
   transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
   padding: 20px;
