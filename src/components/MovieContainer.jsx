@@ -4,9 +4,14 @@ import MovieCard from "./MovieCard";
 import "./MovieContainer.css";
 import Modal from "./Modal/Modal";
 
-export default function MovieContainer({ searchData, clickStatus, selector }) {
+export default function MovieContainer({
+  searchData,
+  clickStatus,
+  selector,
+  favorited,
+}) {
   const API_KEY = import.meta.env.VITE_API_KEY;
-  const imgSRC = "https://image.tmdb.org/t/p/w500";
+  const imgSRC = "https://image.tmdb.org/t/p/original";
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
   const [totalPage, setTotalPage] = useState(0);

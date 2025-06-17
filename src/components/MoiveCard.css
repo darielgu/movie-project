@@ -38,3 +38,9 @@ p {
   margin: 10px;
   font-size: 13px;
 }
+.liked {
+  color: red;
+}
+span {
+  height: fit-content;
+}

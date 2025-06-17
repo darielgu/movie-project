@@ -1,7 +1,7 @@
 import { use, useState } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-// import Modal from "./components/Modal";
+import Sidebar from "./components/Sidebar/Sidebar";
 import "./App.css";
 import MovieContainer from "./components/MovieContainer";
 
@@ -18,6 +18,10 @@ function App() {
   const handleSelector = (select) => {
     setSelector(select);
   };
+  const [favorited, setFavorited] = useState(null);
+  const handleFav = (fav) => {
+    setFavorited(fav);
+  };
   return (
     <>
       <Header
@@ -25,7 +29,12 @@ function App() {
         notifyParentOfClick={handleReset}
         notifyParentOfSelector={setSelector}
       />
-      <MovieContainer searchData={searchData} selector={selector} />
+      {/* <Sidebar notifyParentOfFavorites={handleFav} /> */}
+      <MovieContainer
+        searchData={searchData}
+        selector={selector}
+        favorited={favorited}
+      />
       <Footer />
     </>
   );

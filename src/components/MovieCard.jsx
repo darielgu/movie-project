@@ -8,9 +8,24 @@ export default function MovieCard({
   altText,
   onClick,
 }) {
+  const [like, setLike] = useState(false);
+  // for movie liking I would imagine we could pass up the movie card and add it to an array of liked movies
+  // we would grab this is in favorited and render the whole array of movie objects
+  const [likedMovies, setLikedMovies] = [];
+
   function addDefaultImg(e) {
     e.target.src =
       "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
+  }
+  function handleLike(e) {
+    e.stopPropagation();
+    if (!like) {
+      setLike(true);
+      e.target.className = "liked";
+    } else {
+      setLike(false);
+      e.target.className = "";
+    }
   }
   return (
     <div className="card-container" onClick={onClick}>
@@ -27,6 +42,7 @@ export default function MovieCard({
           Rating: {rating}
           <StarRateIcon fontSize="" />
         </p>
+        <span onClick={handleLike}>&#9829;</span>
       </div>
     </div>
   );
