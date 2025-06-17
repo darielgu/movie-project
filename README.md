@@ -1,12 +1,10 @@
-s📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
-
 ## Unit Assignment: Flixster
 
 Submitted by: **Dariel Gutierrez**
 
 Estimated time spent: **12** hours spent in total
 
-Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
+Deployed Application (optional): [Flixster Deployed Site](https://movie-project-ath5sr3e3-darielgus-projects.vercel.app/)
 
 ### Application Features
 
@@ -66,21 +64,21 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 #### STRETCH FEATURES
 
-- [ ] **Deployment**
-  - [ ] Website is deployed via Render.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough.
+- [x] **Deployment**
+  - [x] Website is deployed via Render.
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough.
 - [x] **Embedded Movie Trailers**
   - [x] Within the pop-up modal displaying a movie's details, the movie trailer is viewable.
     - [x] When the trailer is clicked, users can play the movie trailer.
-- [ ] **Favorite Button**
-  - [ ] For each movie displayed, users can favorite the movie.
-  - [ ] There should be visual element (such as a heart icon) on each movie's tile to show whether or not the movie has been favorited.
-  - [ ] If the movie is not favorited:
-    - [ ] Clicking on the visual element should mark the movie as favorited
-    - [ ] There should be visual feedback (such as the heart turning a different color) to show that the movie has been favorited by the user.
-  - [ ] If the movie is already favorited:
-    - [ ] Clicking on the visual element should mark the movie as _not_ favorited.
-    - [ ] There should be visual feedback (such as the heart turning a different color) to show that the movie has been unfavorited.
+- [x] **Favorite Button**
+  - [x] For each movie displayed, users can favorite the movie.
+  - [x] There should be visual element (such as a heart icon) on each movie's tile to show whether or not the movie has been favorited.
+  - [x] If the movie is not favorited:
+    - [x] Clicking on the visual element should mark the movie as favorited
+    - [x] There should be visual feedback (such as the heart turning a different color) to show that the movie has been favorited by the user.
+  - [x] If the movie is already favorited:
+    - [x] Clicking on the visual element should mark the movie as _not_ favorited.
+    - [x] There should be visual feedback (such as the heart turning a different color) to show that the movie has been unfavorited.
 - [ ] **Watched Checkbox**
   - [ ] For each movie displayed, users can mark the movie as watched.
   - [ ] There should be visual element (such as an eye icon) on each movie's tile to show whether or not the movie has been watched.
@@ -102,28 +100,24 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. Ensure your walkthrough showcases the presence and/or functionality of all features you implemented above (check them off as you film!). Pay attention to any **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS** checkboxes listed above to ensure graders see the full functionality of your website! (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+<div style="position: relative; padding-bottom: 57.446808510638306%; height: 0;"><iframe src="https://www.loom.com/embed/3ef9a99d54054475ba8782be300cb905?sid=3cb8d023-1c05-4e11-94fc-0676b50df1df" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ### Reflection
 
 - Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes the labs were a great help to understanding the concepts!
 
 - If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
 
-Add your response here
+I would have implemented the sidebar stretch feature
 
 - Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+Everything went well and I recieved great feedback
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
-
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Shout out Byron!
