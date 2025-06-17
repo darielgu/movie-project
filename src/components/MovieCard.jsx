@@ -1,4 +1,4 @@
-import "/Users/dariel.gutierrez/Desktop/projects/flixster/movie-project/src/components/MoiveCard.css";
+import "/src/components/MoiveCard.css";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import { useState } from "react";
 export default function MovieCard({
